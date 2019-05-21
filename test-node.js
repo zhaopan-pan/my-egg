@@ -5,7 +5,7 @@ class App {
   constructor() {
     this.handlers = {};
 
-    this.get = this.route.bind(this, 'GET');
+    this.get = this.route.bind(this, 'GET');// 把route函数绑定到App，并预设参数GET
     this.post = this.route.bind(this, 'POST');
   }
 
@@ -14,7 +14,6 @@ class App {
 
     // register handler
     pathInfo[method] = handler;
-    console.log(this);
   }
 
   callback() {
@@ -32,15 +31,15 @@ const app = new App();
 console.log('-----------');
 console.log(app);
 console.log('-----------');
-app.get('/', function(_request, response) {
+app.get('/', function (_request, response) {
   response.end('Hello World');
 });
 
-app.post('/', function(_request, response) {
+app.post('/', function (_request, response) {
   response.end('Hello World With POST');
 });
 
-app.get('/sub', function(_request, response) {
+app.get('/sub', function (_request, response) {
   response.end('sub page');
 });
 
