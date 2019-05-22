@@ -14,6 +14,7 @@ module.exports = appInfo => {
     bodyParser: {// 配置请求体
       jsonLimit: '10mb',
     },
+    
   };
 
   // use for cookie sign key, should change to your own and keep security
@@ -25,6 +26,13 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+  };
+  // 添加 view 配置
+  exports.view = {
+    defaultViewEngine: 'nunjucks',
+    mapping: {
+      '.tpl': 'nunjucks',
+    },
   };
 
   return {

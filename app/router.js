@@ -6,10 +6,10 @@
 module.exports = app => {
   const { router, controller } = app;
   console.log('-----------------');
-  console.log(controller.home.index);
   // console.log(controller.test);
-  router.get('/index', controller.home.index);
+  router.get('/', controller.home.index);
   router.get('/indexs', controller.home.indexs);
   router.get('/main', controller.home.main);
   router.get('/test/:id', controller.test.test);
+  router.get('/list', controller.test.renderlist);
 };
