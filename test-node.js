@@ -1,6 +1,6 @@
 // eslint-disable-next-line strict
 const http = require('http');
-//test
+// test
 class App {
   constructor() {
     this.handlers = {};
@@ -10,10 +10,10 @@ class App {
   }
 
   route(method, path, handler) {
-    const pathInfo = (this.handlers[path] = this.handlers[path] || {});//把请求path赋值给handlers 并把handlers对象中key为当前传入path的值赋值给pathInfo
+    const pathInfo = (this.handlers[path] = this.handlers[path] || {});// 把请求path赋值给handlers 并把handlers对象中key为当前传入path的值赋值给pathInfo
     // register handler
-    pathInfo[method] = handler;//利用对象赋值后指向原对象的规则，所以修改对象后会同步到原来的handlers
-    //以上操作也可以用下面方法代替
+    pathInfo[method] = handler;// 利用对象赋值后指向原对象的规则，所以修改对象后会同步到原来的handlers
+    // 以上操作也可以用下面方法代替
     // this.handlers[path] = this.handlers[path] || {};
     // this.handlers[path][method] = handler;// register handler
   }
@@ -33,15 +33,15 @@ const app = new App();
 console.log('-----------');
 console.log(app);
 console.log('-----------');
-app.get('/', function (_request, response) {
+app.get('/', function(_request, response) {
   response.end('Hello World');
 });
 
-app.post('/', function (_request, response) {
+app.post('/', function(_request, response) {
   response.end('Hello World With POST');
 });
 
-app.get('/sub', function (_request, response) {
+app.get('/sub', function(_request, response) {
   response.end('sub page');
 });
 

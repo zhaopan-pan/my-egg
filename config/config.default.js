@@ -14,7 +14,7 @@ module.exports = appInfo => {
     bodyParser: {// 配置请求体
       jsonLimit: '10mb',
     },
-    
+
   };
 
   // use for cookie sign key, should change to your own and keep security
