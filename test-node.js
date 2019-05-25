@@ -30,9 +30,6 @@ class App {
 }
 
 const app = new App();
-console.log('-----------');
-console.log(app);
-console.log('-----------');
 app.get('/', function(_request, response) {
   response.end('Hello World');
 });

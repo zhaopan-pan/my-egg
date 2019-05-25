@@ -34,10 +34,16 @@ module.exports = appInfo => {
       '.tpl': 'nunjucks',
     },
   };
-
+  config.cluster = {
+    listen: {
+      path: '',
+      port: 7003,
+      hostname: '',
+    },
+  };
   exports.mongoose = {
     client: {
-      url: 'mongodb://127.0.0.1/example',
+      url: 'mongodb://root:123456@127.0.0.1/admin',
       options: {},
       // mongoose global plugins, expected a function or an array of function and options
       // plugins: [createdPlugin, [updatedPlugin, pluginOptions]],
