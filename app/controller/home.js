@@ -1,11 +1,13 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-
+const Model = require('../mocks/article/list');
 class HomeController extends Controller {
   async index() {
     const { ctx } = this;
-    ctx.body = 'hi, egg!index';
+    // ctx.body = 'hi, egg!index';
+    await ctx.render('home.js', { url: ctx.url });
+
   }
   async main() {
     const { ctx } = this;
@@ -15,7 +17,7 @@ class HomeController extends Controller {
 class HomeControllers extends HomeController {
   async indexs() {
     const { ctx } = this;
-    ctx.body = 'hi, egg!indexss';
+    // ctx.body = 'hi, egg!indexss';
   }
   async mains() {
     const { ctx } = this;
@@ -24,7 +26,11 @@ class HomeControllers extends HomeController {
 
   async server() {
     const { ctx } = this;
-    await ctx.render('list.js', { message: 'egg react server side render' });
+    await ctx.render('home.js', { message: 'egg react server side render', data: Model.getPage(1, 10) });
+  }
+  async list() {
+    const { ctx } = this;
+    await ctx.render('list.js', { message: 'egg react server list', data: Model.getPage(1, 10) });
   }
 }
 

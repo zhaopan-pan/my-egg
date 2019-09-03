@@ -22,8 +22,3 @@ exports.reactssr = {
   enable: true,
   package: 'egg-view-react-ssr'
 };
-
-exports.webpackreact = {
-  enable: true,
-  package: 'egg-webpack-react'
-};

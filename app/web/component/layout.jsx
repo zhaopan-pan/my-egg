@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import HeaderComponet from './header';
 export default class Layout extends Component {
+  componentDidMount() {
+    console.log(this.props);
+    console.log(EASY_ENV_IS_NODE);
+  }
   render() {
-    if(EASY_ENV_IS_NODE) {
+    if (EASY_ENV_IS_NODE) {
       return <html>
         <head>
           <title>{this.props.title}</title>
