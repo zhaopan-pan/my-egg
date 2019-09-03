@@ -9,7 +9,7 @@ class TestController extends Controller {
   }
   async renderlist() {
     const { ctx } = this;
-    await ctx.render('news/list.html', { list: [{ title: '1', url: 'http://www.baidu.com' }, { title: '2', url: 'http://www.baidu.com' }] });
+    ctx.body = await ctx.renderView('news/list.tpl', { list: [{ title: '1', url: 'http://www.baidu.com' }, { title: '2', url: 'http://www.baidu.com' }] });
   }
 }
 

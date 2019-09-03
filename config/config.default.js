@@ -1,7 +1,7 @@
 /* eslint valid-jsdoc: "off" */
 
 'use strict';
-
+const path = require('path');
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -16,7 +16,18 @@ module.exports = appInfo => {
     },
 
   };
+  // 保证构建的静态资源文件能够被访问到
+  config.static = {
+    prefix: '/public/',
+    dir: path.join(appInfo.baseDir, 'public')
+  };
 
+  config.reactssr = {
+    // renderOptions: {
+    //   basedir: path.join(appInfo.baseDir, 'app/web')
+    // }
+    layout: path.resolve(appInfo.baseDir, 'app/web/view/layout.html')
+  };
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1557755819344_7096';
 
@@ -28,12 +39,12 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
   // 添加 view 配置
-  exports.view = {
-    defaultViewEngine: 'nunjucks',
-    mapping: {
-      '.tpl': 'nunjucks',
-    },
-  };
+  // exports.view = {
+  //   defaultViewEngine: 'nunjucks',
+  //   mapping: {
+  //     '.tpl': 'nunjucks',
+  //   },
+  // };
   config.cluster = {
     listen: {
       path: '',

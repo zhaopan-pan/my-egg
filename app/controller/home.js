@@ -21,6 +21,11 @@ class HomeControllers extends HomeController {
     const { ctx } = this;
     ctx.body = 'mian';
   }
+
+  async server() {
+    const { ctx } = this;
+    await ctx.render('list.js', { message: 'egg react server side render' });
+  }
 }
 
 // const home = { HomeController, HomeControllers };
