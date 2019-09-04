@@ -12,7 +12,7 @@ module.exports = app => {
   router.get('/indexs', controller.home.indexs);
   router.get('/main', controller.home.main);
   router.get('/test/:id', controller.test.test);
-  router.get('/list', controller.test.renderlist);
+  // router.get('/list', controller.test.renderlist);
   router.get('/user/add', controller.user.add);
   router.get('/user/getUserlist', controller.user.getUserlist);
   router.get('/server', controller.home.server);

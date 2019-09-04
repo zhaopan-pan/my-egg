@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import { add, del } from '../store/actions';
 
 class Home extends Component {
+  constructor() {
+    super();
+  }
   static fetch() {
     return Promise.resolve({
       list: [{
@@ -24,11 +27,15 @@ class Home extends Component {
         hits: 278,
         url: 'https://github.com/hubcarl/easywebpack-cli'
       }]
-    }).then(data => { 
+    }).then(data => {
       return data;
     });
   }
 
+
+  // componentWillMount() {
+    // console.log(this.props)
+  // }
   render() {
     const { add, del, list } = this.props;
     const id = list.length + 1;
@@ -44,7 +51,7 @@ class Home extends Component {
         <div className="row row-offcanvas row-offcanvas-right">
           <div className="col-xs-12 col-sm-9">
             <ul className="smart-artiles" id="articleList">
-              {list.map(function(item) {
+              {list.map(function (item) {
                 return <li key={item.id}>
                   <div className="point">+{item.hits}</div>
                   <div className="card">
@@ -80,8 +87,9 @@ class Home extends Component {
 
 
 const mapStateToProps = state => {
+  console.log(state)
   return {
-    list: state.list
+    list: state.list.list
   };
 };
 

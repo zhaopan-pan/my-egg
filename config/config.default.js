@@ -26,7 +26,7 @@ module.exports = appInfo => {
     // renderOptions: {
     //   basedir: path.join(appInfo.baseDir, 'app/web')
     // }
-    layout: path.resolve(appInfo.baseDir, 'app/web/view/layout.html')
+    layout: path.resolve(appInfo.baseDir, 'app/web/view/layout.html'),//指定前端渲染默认模板
   };
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1557755819344_7096';
