@@ -42,7 +42,8 @@
     "egg-webpack": "^4.5.1",
     "egg-webpack-react": "^2.0.3",
     "eslint": "^5.13.0",
-    "eslint-config-egg": "^7.1.0"
+    "eslint-config-egg": "^7.1.0",
+    "react-hot-loader": "^4.12.12"
   },
   "engines": {
     "node": ">=10.0.0"

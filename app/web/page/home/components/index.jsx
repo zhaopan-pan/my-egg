@@ -20,7 +20,7 @@ class App extends Component {
 
   render() {
     return <div>
-      <Menu onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]} mode="horizontal">
+      <Menu onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]}>
         <Menu.Item key="/">
           <Link to="/">Home</Link>
         </Menu.Item>

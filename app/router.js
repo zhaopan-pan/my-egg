@@ -16,5 +16,6 @@ module.exports = app => {
   router.get('/user/add', controller.user.add);
   router.get('/user/getUserlist', controller.user.getUserlist);
   router.get('/server', controller.home.server);
+  router.get('/client', controller.home.client);
 
 };

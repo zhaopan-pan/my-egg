@@ -33,11 +33,11 @@ class Home extends Component {
   }
 
 
-  // componentWillMount() {
-    // console.log(this.props)
-  // }
+  componentDidMount() {
+    console.log(this.props)
+  }
   render() {
-    const { add, del, list } = this.props;
+    const {list, dispatch } = this.props;
     const id = list.length + 1;
     const item = {
       id,
@@ -69,7 +69,7 @@ class Home extends Component {
                           <span className="timeago">{item.summary}</span>
                         </li>
                         <li>
-                          <span className="redux-btn-del" onClick={() => del(item.id)}>Delete</span>
+                          <span className="redux-btn-del" onClick={() => dispatch({ type: "DEL", id: item.id })}>Delete</span>
                         </li>
                       </ul>
                     </div>
@@ -80,17 +80,20 @@ class Home extends Component {
           </div>
         </div>
       </div>
-      <div className="redux-btn-add" onClick={() => add(item)}>Add</div>
+      <div className="redux-btn-add" onClick={() => dispatch({ type: "ADD", item: item })}>Add</div>
     </div>;
   }
 }
 
 
 const mapStateToProps = state => {
-  console.log(state)
   return {
-    list: state.list.list
+    list: state.list
   };
 };
-
-export default connect(mapStateToProps, { add, del })(Home);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    dispatch: dispatch,
+  }
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

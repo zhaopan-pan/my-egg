@@ -26,7 +26,11 @@ class HomeControllers extends HomeController {
 
   async server() {
     const { ctx } = this;
-    await ctx.render('home.js', { message: 'egg react server side render', list: Model.getPage(1, 10) });
+    await ctx.render('home.js', Model.getPage(1, 10));
+  }
+  async client() {
+    const { ctx } = this;
+    await ctx.renderClient('home.js', Model.getPage(1, 10));
   }
   async list() {
     const { ctx } = this;
