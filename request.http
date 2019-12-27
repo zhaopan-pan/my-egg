@@ -1,0 +1,6 @@
+POST http://127.0.0.1:7003/api/user/add HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+userName=test6&passWord=1234567
+
+GET http://127.0.0.1:7003/api/user/getUserlist HTTP/1.1

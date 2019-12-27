@@ -6,7 +6,7 @@ module.exports = app => {
     // const conn = app.mongooseDB.get('db1');
     const UserSchema = new Schema({
         userName: { type: String },
-        password: { type: String },
+        passWord: { type: String },
     });
 
     return mongoose.model('user', UserSchema,'user');

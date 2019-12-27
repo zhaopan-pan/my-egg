@@ -22,3 +22,7 @@ exports.reactssr = {
   enable: true,
   package: 'egg-view-react-ssr'
 };
+exports.validate = {
+  enable: true,
+  package: 'egg-validate',
+};

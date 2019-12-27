@@ -13,8 +13,8 @@ module.exports = app => {
   router.get('/main', controller.home.main);
   router.get('/test/:id', controller.test.test);
   // router.get('/list', controller.test.renderlist);
-  router.get('/user/add', controller.user.add);
-  router.get('/user/getUserlist', controller.user.getUserlist);
+  router.post('/api/user/add', controller.user.add);
+  router.get('/api/user/getUserlist', controller.user.getUserlist);
   router.get('/server', controller.home.server);
   router.get('/client', controller.home.client);
 

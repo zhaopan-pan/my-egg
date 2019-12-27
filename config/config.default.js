@@ -13,9 +13,17 @@ module.exports = appInfo => {
   const config = exports = {
     bodyParser: {// 配置请求体
       jsonLimit: '10mb',
+      formLimit: '1mb',
     },
-
+    security: { csrf: false },//egg-security-关闭其中一些安全防范
+    // 加载 errorHandler 中间件
+    middleware: ['errorHandler'],// add your middleware config here
+    // 只对 /api 前缀的 url 路径生效
+    errorHandler: {
+      match: '/api',
+    },
   };
+
   // 保证构建的静态资源文件能够被访问到
   config.static = {
     prefix: '/public/',
@@ -30,9 +38,6 @@ module.exports = appInfo => {
   };
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1557755819344_7096';
-
-  // add your middleware config here
-  config.middleware = [];
 
   // add your user config here
   const userConfig = {
@@ -52,16 +57,17 @@ module.exports = appInfo => {
       hostname: '',
     },
   };
+
   // 连接mongodb
-  // exports.mongoose = {
-    // client: {
+  exports.mongoose = {
+    client: {
       // url: 'mongodb://root:123456@127.0.0.1/admin',
-      // url: 'mongodb://root:root123456@127.0.0.1/admin',
-      // options: {},
+      url: 'mongodb://root:root123456@127.0.0.1/admin',
+      options: {},
       // mongoose global plugins, expected a function or an array of function and options
       // plugins: [createdPlugin, [updatedPlugin, pluginOptions]],
-  //   },
-  // };
+    },
+  };
   return {
     ...config,
     ...userConfig,
