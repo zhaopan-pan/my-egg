@@ -62,7 +62,7 @@ module.exports = appInfo => {
   exports.mongoose = {
     client: {
       // url: 'mongodb://root:123456@127.0.0.1/admin',
-      url: 'mongodb://root:root123456@127.0.0.1/admin',
+      url: 'mongodb://admin:123456@127.0.0.1/admin',
       options: {},
       // mongoose global plugins, expected a function or an array of function and options
       // plugins: [createdPlugin, [updatedPlugin, pluginOptions]],

@@ -10,11 +10,14 @@ import { Provider } from 'react-redux'
 import { create } from './components/store';
 import routes from './components/router'
 
-
+console.log('EASY_ENV_IS_NODE', EASY_ENV_IS_NODE)
+console.log('EASY_ENV_IS_DEV', EASY_ENV_IS_DEV)
 const clientRender = () => {
     const store = create(window.__INITIAL_STATE__);
     const url = store.getState().url;
+    console.log('clientRender-start');
     console.log('>>>url', url);
+    console.log('clientRender-over');
     const Entry = () => (<div>
         <Provider store={store}>
             <BrowserRouter>
@@ -38,6 +41,7 @@ const clientRender = () => {
 
 const serverRender = (context, options) => {
     const url = context.state.url;
+    console.log('serverRender-start');
     console.log('>>>>routes', routes);
     console.log('>>>>url', url);
     const branch = matchRoutes(routes, url);
@@ -45,14 +49,15 @@ const serverRender = (context, options) => {
         const fetch = route.component.fetch;
         return fetch instanceof Function ? fetch() : Promise.resolve(null)
     });
+    console.log('serverRender-over');
     return Promise.all(promises).then(data => {
-        console.log(data)
+        console.log('data', data)
         const initState = context.state;
         data.forEach(item => {
             Object.assign(initState, item);
         });
         context.state = Object.assign({}, context.state, initState);
-        console.log("context",context)
+        // console.log("context", context)
         const store = create(initState);
         return () => (
             <Layout>

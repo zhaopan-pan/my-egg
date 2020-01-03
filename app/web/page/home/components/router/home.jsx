@@ -34,10 +34,10 @@ class Home extends Component {
 
 
   componentDidMount() {
-    console.log(this.props)
+    console.log("home's props", this.props)
   }
   render() {
-    const {list, dispatch } = this.props;
+    const { list, dispatch } = this.props;
     const id = list.length + 1;
     const item = {
       id,

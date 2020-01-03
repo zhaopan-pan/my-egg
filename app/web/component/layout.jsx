@@ -3,7 +3,7 @@ import HeaderComponet from './header';
 export default class Layout extends Component {
   componentDidMount() {
     console.log(this.props);
-    console.log(EASY_ENV_IS_NODE);
+    console.log("layout", EASY_ENV_IS_NODE);
   }
   render() {
     if (EASY_ENV_IS_NODE) {

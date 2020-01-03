@@ -7,7 +7,11 @@ module.exports = {
     },
     dll: ['react', 'react-dom'], // webpack dll 构建
     loaders: {},
-    plugins: {},
+    plugins: [{
+        define: {
+            'EASY_ENV_IS_NODE': process.env.EASY_ENV_IS_NODE,//测试服务端渲染时可以配置为true
+        }
+    }],
     done() { // 编译完成回调
 
     }
