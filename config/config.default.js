@@ -12,8 +12,8 @@ module.exports = appInfo => {
    **/
   const config = exports = {
     bodyParser: {// 配置请求体
-      jsonLimit: '10mb',
-      formLimit: '1mb',
+      jsonLimit: '1mb',
+      formLimit: '10mb',
     },
     security: { csrf: false },//egg-security-关闭其中一些安全防范
     // 加载 errorHandler 中间件

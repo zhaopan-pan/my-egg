@@ -8,15 +8,7 @@ class UserService extends Service {
     const {
       ctx,
     } = this;
-    const result = await ctx.model.User.create(user);
-    console.log("UserService-result", result);
-    if (result) {
-      return {
-        code: 1,
-        meg: "新增成功"
-      };
-
-    }
+    return await ctx.model.User.create(user);
   }
   async userlist() {
     const {
@@ -32,10 +24,7 @@ class UserService extends Service {
     return result ? { "dataList": result } : { "datList": null };
   }
   async getList(id) {
-    return this.ctx.model.User.find().then(res => {
-      console.log("jieguo:", res);
-      return res ? { "dataList": res } : { "datList": null };
-    });
+    return await this.ctx.model.User.find();
   }
 
 }

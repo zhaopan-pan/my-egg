@@ -8,18 +8,23 @@ const userObjRule = {
     passWord: 'string',
 };
 class UserController extends Controller {
-    async add() {
+    async create() {
         const { ctx } = this;
         const user = ctx.request.body;
         // 校验 `ctx.request.body` 是否符合我们预期的格式
         // 如果参数校验未通过，将会抛出一个 status = 422 的异常
         const validateResult = ctx.validate(userObjRule, user);
         console.log("validateResult", validateResult);
-        this.ctx.body = await this.ctx.service.user.add(user);
+        await this.ctx.service.user.add(user);
+        // 设置响应内容和响应状态码
+        ctx.helper.success({ ctx })
     }
-    async getUserlist() {
+    async index() {
+        const { ctx, service } = this
         console.log("****-getUserlist");
-        this.ctx.body = await this.ctx.service.user.userlist();
+        const res = await service.user.userlist();
+        // 设置响应内容和响应状态码
+        ctx.helper.success({ ctx, res })
     }
 }
 
